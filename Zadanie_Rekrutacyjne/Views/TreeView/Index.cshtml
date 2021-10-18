@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Zadanie_Rekrutacyjne.Models.TreeView>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Widok struktury drzewa</h2>
+
+
+@using (Ajax.BeginForm(new AjaxOptions
+{
+    Url = Url.Action("Treeview", "TreeView"),
+    HttpMethod = "get",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "treeview"
+}))
+{
+    <div class="form-group form-inline">
+
+        <select name="sortType" class="form-control">
+            <option value="" selected>Wybierz sortowanie</option>
+            <option value="1">Sortuj po nazwie A-Z</option>
+            <option value="2">Sortuj po nazwie Z-A</option>
+        </select>
+        <input type="submit" value="Sortuj" class="btn btn-primary" />
+    </div>
+}
+
+
+<div class="treeview">
+    <ul>
+        @Html.Action("Treeview", "TreeView")
+    </ul>
+</div>
+
+<hr />
+<div>
+    @if (User.IsInRole("Admin"))
+    {
+        <h3 class="text-center">Legenda</h3>
+        <p class="text-center">
+            <i class="fa fa-plus-square" style="color:green;"></i> - Dodawanie dziecka do wybranego elementu <br />
+            <i class="fa fa-pencil"></i> - Edycja nazwy wybranego elementu <br />
+            <i class="fa fa-arrows-v"></i> - Zmiana lokalizacji wierzchołka razem z jego dziećmi<br />
+            <i class="fa fa-trash fa-lg" style="color:red;"></i> - Usuwanie elementu drzewa razem z jego dziećmi
+        </p>
+    }
+     else
+        {
+            @Html.ActionLink("Zaloguj się ","Login","Account") <p style="display:inline-block">aby mieć dostęp do edycji gałęzi</p>
+        }
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(".treeview li>ul").css('display', 'none');
+            $(".collapsible").click(function (e) {
+                e.preventDefault();
+                var clicked = $(this).attr('id');
+                $("#" + clicked + " i").closest("i").toggleClass("fa-angle-right fa-angle-down");
+                $("#" + clicked + " i").closest('li').children('ul').slideToggle();
+            });
+        });
+    </script>
+}

@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Zadanie rekrutacyjne Patryk Staroń</h1>
+    <p class="lead">Zadanie polega na oprogramowaniu mechanizmu zarządzania strukturą drzewiastą wraz z implementacją poprawnej obsługi formularzy.</p>
+    <p style="color: red">Aby zalogować się do aplikacji użyj poniższych danych logowania administratora:</p>
+    <p>Email: patryk@onet.pl</p>
+    <p>Hasło: Admin@1</p>
+    <p style="color: orangered">Jeśli w bazie danych nie ma żadnych rekordów, proszę otworzyć konsole menadzerów pakietów i wpisać "Update-Database" </p>
+    <p><a href="/TreeView" class="btn btn-primary btn-lg">Rozwiązanie zadania &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Założenia co do technologii:</h2>
+        <p>
+            <ul>
+                <li>
+                    baza danych MSSQL / MySQL / PostgreSQL,
+                </li>
+                <li>
+                    ASP.NET / MVC / .NET Core,
+                </li>
+                <li>
+                    HTML 5, CSS 3.
+                </li>
+            </ul>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Założenia dotyczące realizacja zadania:</h2>
+        <p>
+            <ul>
+                <li>
+                    struktura drzewiasta ma umożliwiać działanie na dowolnej ilości poziomów,
+                </li>
+                <li>
+                    funkcje jakie mają być dostępne dla administratora: dodawanie, edycja, usuwania, sortowanie (zarówno węzłów jak i liści), przenoszenie węzłów do innych gałęzi,
+                </li>
+                <li>
+                    powinna być możliwość rozwinięcia całej struktury lub wybranych węzłów,
+                </li>
+                <li>
+                    powinny zostać zastosowane zabezpieczenia uniemożliwiające wprowadzanie nieprawidłowych danych,
+                </li>
+                <li>
+                    wskazane zastosowanie skryptów client-side (własnych, nie gotowych rozwiązań jak np. jsTree)
+                </li>
+                <li>
+                    obsługa formularzy powinna zawierać klasę do generowania formularzy wraz z wizualizacją, walidacją oraz zabezpieczeniami.
+                </li>
+            </ul>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Opis reazlizacji projektu</h2>
+        <p>
+            Aplikacja została napisana w technologi ASP.NET Framework MVC.<br />
+            Dane do aplikacji zapisywane są w bazie MSSQL, tabele w bazie zostały utworzone za pomocą klas Encji podejście Code-First  <br />
+            W aplikacji wykorzystałem HTML,CSS,JS jak również obsługę ikon z fontawesome.com dzięi czemu aplikacja jest bardziej przjerzysta
+        </p>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model Zadanie_Rekrutacyjne.Models.TreeView
+
+@{
+    ViewBag.Title = "Usuwanie elementu";
+}
+
+<h3>Pamiętaj. Usunięcie wierzchołka spowoduje usunięcie jego dzieci!</h3>
+
+<h4>Czy jesteś pewny, że chcesz usunąć ten elemenet?</h4>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Element jest dzieckiem:")
+        </dt>
+
+        <dd>
+            @ViewBag.Rodzic
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Powrót", "Index")
+        </div>
+
+    }
+</div>
